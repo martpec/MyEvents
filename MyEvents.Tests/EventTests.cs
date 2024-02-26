@@ -39,5 +39,29 @@ namespace MyEvents.Tests
             bool registrationResult = evnt.RegisterAttendee();
             Assert.False(registrationResult);
         }
+
+        [Fact]
+        public void AverageRating_ReturnsCorrectAverage_WhenRatingsAreAdded()
+        {
+            // Arrange
+            var evnt = new Event("Test Event", "Workshop", 10);
+            evnt.AddRating(3);
+            evnt.AddRating(4);
+            evnt.AddRating(5);
+
+            double averageRating = evnt.AverageRating();
+
+            Assert.Equal(4, averageRating);
+        }
+
+        [Fact]
+        public void AddRating_ReturnsFalse_WhenRatingIsOutOfRange()
+        {
+            var evnt = new Event("Test Event", "Workshop", 10);
+
+            bool result = evnt.AddRating(6);
+
+            Assert.False(result);
+        }
     }
 }

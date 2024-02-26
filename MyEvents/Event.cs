@@ -29,5 +29,23 @@ namespace MyEvents
             }
             return false;
         }
+
+        private List<int> ratings = new List<int>();
+
+        public double AverageRating()
+        {
+            return ratings.Count > 0 ? ratings.Average() : 0;
+        }
+
+        public bool AddRating(int rating)
+        {
+            if (rating < 1 || rating > 5)
+            {
+                return false; // Invalid rating, must be between 1 and 5
+            }
+
+            ratings.Add(rating);
+            return true;
+        }
     }
 }

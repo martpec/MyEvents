@@ -30,6 +30,15 @@ namespace MyEvents
             Console.WriteLine($"Registration successful: {registrationResult}");
             DisplayEvent(codingWorkshop); // Show updated capacity
 
+            // Simulate review addition
+            Console.WriteLine("\nAdding review for Coding Workshop - 4 stars");
+            bool ReviewAdditionResult = codingWorkshop.AddRating(4);
+            Console.WriteLine($"Addition successful: {ReviewAdditionResult}");
+            Console.WriteLine("\nAdding review for Coding Workshop - 2 stars");
+            bool ReviewAdditionResult2 = codingWorkshop.AddRating(2);
+            Console.WriteLine($"Addition successful: {ReviewAdditionResult2}");
+            Console.WriteLine($"Average rating of Coding Workshop is {codingWorkshop.AverageRating()}");// Show updated status
+            
             // Simulate event cancellation
             Console.WriteLine("\nCancelling the Tech Talk...");
             bool cancellationResult = manager.CancelEvent("Tech Talk");
